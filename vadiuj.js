@@ -25,3 +25,8 @@ function btnDeleteRow(btnElement) {
 }
 
 // új sor beszúrása a gomb lenyomásval
+
+function btnAddFruit() {
+    let newFruit = document.querySelector("input[name='newFruit']")
+    document.querySelector("tbody").innerHTML += `<tr><td>${newFruit.value}</td><td><button type="button" class="btn btn-sm btn-danger" onclick="btnDeleteRow(this)">Delete</button></td> </tr>`
+}
