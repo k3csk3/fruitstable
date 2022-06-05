@@ -9,6 +9,7 @@ let fruits = ["apple", "banana", "pear", "grape"]
 
 let rows = ""
 
+
 for (let i = 0; i < fruits.length; i++) {
     //console.log(fruits[i])
     //let row = `<tr><td>` + fruits[i] + `</td><td><button type="button" class="btn btn-sm btn-danger" >Delete</button></td> </tr>`
@@ -28,15 +29,14 @@ function btnDeleteRow(btnElement) {
 
 function btnAddFruit() {
     let newFruit = document.querySelector("input[name='newFruit']")
-    document.querySelector("tbody").innerHTML += `<tr><td>${newFruit.value}</td><td><button type="button" class="btn btn-sm btn-danger" onclick="btnDeleteRow(this)">Delete</button></td> </tr>`
+    document.querySelector("tbody").innerHTML += `<tr><td>${newFruit.value}</td><td><button type="button" class="btn btn-sm btn-danger" onclick="btnDeleteRow(this)">Delete</button><button type="button" class="btn btn-sm btn-primary" onclick="btnChangeRow(this)">Change</button></td> </tr>`
 }
 
 // Gyümölcscsere
 
 function btnChangeRow(btnChange) {
-    let addFruit = prompt("Change fruit", "")
+    let addFruit = prompt("Change fruit", btnChange.parentElement.parentElement.firstChild.innerHTML)
     if (addFruit !=null) {
-        btnChange.closest('tr').remove();
-        document.querySelector("tbody").innerHTML += `<tr><td>${addFruit}</td><td><button type="button" class="btn btn-sm btn-danger" onclick="btnDeleteRow(this)">Delete</button><button type="button" class="btn btn-sm btn-primary" onclick="btnChangeRow(this)">Change</button></td> </tr>`
+        btnChange.parentElement.parentElement.firstChild.innerHTML = addFruit;
     }
 }
