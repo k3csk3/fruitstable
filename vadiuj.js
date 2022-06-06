@@ -37,6 +37,6 @@ function btnAddFruit() {
 function btnChangeRow(btnChange) {
     let addFruit = prompt("Change fruit", btnChange.parentElement.parentElement.firstChild.innerHTML)
     if (addFruit !=null) {
-        btnChange.parentElement.parentElement.firstChild.innerHTML = addFruit;
+        btnChange.closest('tr').firstChild.innerHTML = addFruit;
     }
 }
